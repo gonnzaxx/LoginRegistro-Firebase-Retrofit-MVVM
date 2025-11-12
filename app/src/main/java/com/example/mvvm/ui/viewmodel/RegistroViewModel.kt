@@ -26,14 +26,17 @@ class RegistroViewModel : ViewModel(){
     private val _isRegisterOk = MutableLiveData<Boolean?>()
     val isRegisterOk : LiveData<Boolean?> = _isRegisterOk
 
+    // Actualiza el email cuando el usuario escribe
     fun onEmailChange(newEmail : String){
         _email.value = newEmail
     }
 
+    // Actualiza la contraseña cuando el usuario escribe
     fun onPasswordChange(newPassword : String){
         _password.value = newPassword
     }
 
+    // Ejecuta el proceso de registro
     fun onRegister(){
         val emailValue: String
         if (_email.value != null) {
@@ -72,6 +75,7 @@ class RegistroViewModel : ViewModel(){
         }
     }
 
+    // Valida el formulario de registro
     private fun isFormValid(email: String, pass: String): Boolean {
         // Comprobación 1: Campos vacíos
         if (email.isBlank() || pass.isBlank()) {

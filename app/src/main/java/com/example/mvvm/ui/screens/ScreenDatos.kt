@@ -63,18 +63,18 @@ fun ScreenDatos(navigateToVista: () -> Unit) {
 
         Spacer(Modifier.height(20.dp))
 
-        // EMAIL BLOQUEADO (no editable)
+        // email (no editable)
         OutlinedTextField(
             value = email,
             onValueChange = {},
             label = { Text("E-mail") },
-            enabled = false,             // <- bloquea la edición
+            enabled = false,             // bloquea la edición
             modifier = Modifier.fillMaxWidth()
         )
 
         Spacer(Modifier.height(16.dp))
 
-        // CONTRASEÑA EDITABLE
+        // contraseña editable
         OutlinedTextField(
             value = password,
             onValueChange = { vm.onPasswordChange(it) },

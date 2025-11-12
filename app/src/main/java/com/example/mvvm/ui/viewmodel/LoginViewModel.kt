@@ -29,14 +29,17 @@ class LoginViewModel : ViewModel(){
     private val _isLoginOk = MutableLiveData<Boolean?>()
     val isLoginOk : LiveData<Boolean?> = _isLoginOk
 
+    // Actualiza el email cuando el usuario escribe
     fun onEmailChange(newEmail : String){
         _email.value = newEmail
     }
 
+    // Actualiza la contraseña cuando el usuario escribe
     fun onPasswordChange(newPassword : String){
         _password.value = newPassword
     }
 
+    // Ejecuta el proceso de login
     fun onLogin() {
         val emailValue = _email.value ?: ""
         val passwordValue = _password.value ?: ""
@@ -48,6 +51,7 @@ class LoginViewModel : ViewModel(){
             _errorMessage.value = null
             _isLoginOk.value = false
             try {
+                // Llama al repositorio para hacer login
                 val result = authRepository.login(emailValue, passwordValue)
                 result.onSuccess {
                     _isLoginOk.value = true
@@ -62,6 +66,7 @@ class LoginViewModel : ViewModel(){
         }
     }
 
+    // Traduce los errores comunes de Firebase a mensajes legibles
     private fun mapFirebaseError(e: Throwable): String = when (e) {
         is FirebaseAuthInvalidUserException -> "El email no está registrado."
         is FirebaseAuthInvalidCredentialsException -> "Email o contraseña incorrectos."
@@ -69,7 +74,7 @@ class LoginViewModel : ViewModel(){
         else -> e.message ?: "Error desconocido al iniciar sesión."
     }
 
-
+    // Valida el formulario de login
     private fun isFormValid(email: String, pass: String): Boolean {
         // Comprobación 1: Campos vacíos
         if (email.isBlank() || pass.isBlank()) {

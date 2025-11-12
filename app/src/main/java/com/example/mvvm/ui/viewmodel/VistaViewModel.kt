@@ -10,6 +10,7 @@ import kotlinx.coroutines.withContext
 class VistaViewModel : ViewModel(){
     private val jedaiRepository = JedaiRepository()
 
+    // Lista observable de Jedais
     private val _jedaiList = MutableLiveData<List<Jedai>>(emptyList())
     val jedaiList : LiveData<List<Jedai>> = _jedaiList
 
@@ -23,6 +24,8 @@ class VistaViewModel : ViewModel(){
     private val _currentIndex = MutableLiveData(0)
     val currentIndex: LiveData<Int> = _currentIndex
 
+
+    // Carga la lista de Jedais desde el repositorio
     fun loadJedaiList(){
         viewModelScope.launch {
             _isLoading.value = true
@@ -41,6 +44,7 @@ class VistaViewModel : ViewModel(){
         }
     }
 
+    // Muestra el siguiente Jedai de la lista
     fun nextJedai(){
         val list = _jedaiList.value ?: emptyList()
         if(list.isNotEmpty()){

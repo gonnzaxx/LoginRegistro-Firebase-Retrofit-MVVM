@@ -36,10 +36,12 @@ class DatosViewModel(
         _password.value = sharedRepo.getPassword()
     }
 
+    // Actualiza el valor de la contraseña al cambiar en el campo de texto
     fun onPasswordChange(newPass: String) {
         _password.value = newPass
     }
 
+    // Guarda los cambios de contraseña y actualiza Firebase + SharedPreferences
     fun onSaveChanges() {
         val newPass = _password.value?.trim().orEmpty()
         val emailVal = _email.value.orEmpty()
@@ -83,6 +85,7 @@ class DatosViewModel(
         }
     }
 
+    // Resetea la variable de navegación tras moverse de pantalla
     fun onNavigated() {
         _navigateToVista.value = false
     }
