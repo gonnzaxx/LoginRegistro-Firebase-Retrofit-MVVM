@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "260273904021",
+    "project_id": "mvvm-iniciosesion",
+    "storage_bucket": "mvvm-iniciosesion.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:260273904021:android:966e52f18c80bb1d47be9c",
+        "android_client_info": {
+          "package_name": "com.example.mvvm"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBuNfZJL_lii1Se1fKMHMtlI9wOKy0EYPs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
